@@ -1,0 +1,61 @@
+'ProgramMode:RUN
+Lbl 1
+ClrText
+4->P
+1->D
+1->V
+1->W
+2->B
+4->C
+10->M
+0->T
+For P-D->I To P+D
+Locate 1,I,"|"
+Next
+Locate B,C,"_#E6A3_"
+While 1=1
+While T<M
+T+1->T
+WhileEnd
+0->T
+If Getkey>=10
+Then If Getkey=28
+Then If P-D>=2
+Then P-1->P
+Locate 1,P-D,"|"
+Locate 1,P+D+1," "
+IfEnd
+Else If Getkey=37
+Then If P+D<=6
+Then P+1->P
+Locate 1,P+D,"|"
+Locate 1,P-D-1," "
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+Locate B,C," "
+B+V->B
+C+W->C
+If B=21
+Then -V->V
+Else If B=2
+Then -V->V
+If C<P-D
+Then Goto 2
+Else If C>P+D
+Then Goto 2
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+If C=7
+Then -W->W
+Else If C=1
+Then -W->W
+IfEnd
+IfEnd
+Locate B,C,"_#E6A3_"
+WhileEnd
+Lbl 2
+Menu "Game overChar!","Ok",1,"Ok",1

@@ -1,0 +1,257 @@
+'ProgramMode:RUN
+Lbl 2
+ClrText
+[[0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0][0,0,0,0,0,0,0]]->Mat A
+'S
+{-1,1,-1,0,0,1,0,1,0,0,1,1,-1,1,-1,0,0,1,-1,0,-1,-1,0,0}->List 1
+{-1,0,-1,-1,0,0,-1,1,1,0,0,-1,0,1,0,0,1,1,-1,1,1,0,0,-1}->List 2
+'Z
+{-1,1,-1,0,0,1,0,1,0,0,1,1,-1,1,-1,0,0,1,-1,0,-1,-1,0,0}->List 3
+{-1,0,0,0,-1,-1,-1,1,-1,0,0,1,0,1,1,1,0,0,-1,0,-1,0,0,1}->List 4
+'T
+{-1,1,-1,0,1,0,0,1,0,0,0,1,-1,1,1,0,-1,0,-1,0,0,0,0,-1}->List 5
+{0,1,0,0,0,1,-1,1,-1,0,1,0,-1,0,0,0,0,-1,-1,1,1,0,-1,0}->List 6
+'J
+{-1,1,-1,-1,0,1,-1,0,-1,0,0,0,-1,1,-1,0,1,1,0,1,0,0,0,1}->List 7
+{-1,0,-1,0,0,0,-1,1,1,1,0,-1,0,1,0,0,0,1,-1,1,1,0,-1,-1}->List 8
+'L
+{-1,1,-1,0,1,1,-1,0,-1,0,0,0,-1,1,-1,-1,0,1,0,1,0,0,0,1}->List 9
+{-1,0,0,0,0,-1,-1,1,-1,-1,0,1,0,1,1,0,0,0,-1,1,-1,0,1,1}->List 10
+'O
+{-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5}->List 11
+{-0.5,0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0.5}->List 12
+'I
+{-1.5,1.5,-1.5,-0.5,0.5,1.5,0.5,0.5,0.5,0.5,0.5,0.5,-1.5,1.5,-1.5,-0.5,0.5,1.5,-0.5,-0.5,-0.5,-0.5,-0.5,-0.5}->List 13
+{-0.5,-0.5,-0.5,-0.5,-0.5,-0.5,-1.5,1.5,-1.5,-0.5,0.5,1.5,0.5,0.5,0.5,0.5,0.5,0.5,-1.5,1.5,-1.5,-0.5,0.5,1.5}->List 14
+{1,1,1,1,1,0.5,1.5}->List 15
+{1}->List 16
+'_For _1_->_X_ To _21
+'_For _1_->_Y_ To _7
+'_Locate _X,Y," "
+'_Next_
+'_Next_
+RanInt#(1,7)->N
+1->U
+"_#E6A6_"->Str 1
+Lbl 1
+0->T
+5->M
+N->P
+RanInt#(1,7)->N
+If N=1
+Then Locate 21,1,"S"
+Else If N=2
+Then Locate 21,1,"Z"
+Else If N=3
+Then Locate 21,1,"T"
+Else If N=4
+Then Locate 21,1,"J"
+Else If N=5
+Then Locate 21,1,"L"
+Else If N=6
+Then Locate 21,1,"O"
+Else Locate 21,1,"I"
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+
+2*P-1->V
+2*P->W
+0->R
+R->C
+21-List 15[P]->Y
+4+Frac List 15[P]->X
+X->A
+Y->B
+1-List W[6*R+1]->E
+1-List W[6*R+1]->D
+0->F
+For 1->I To 4
+If Mat A[Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Then Menu "Game over","Try again",2,"Pay attention to class",3
+IfEnd
+Next
+While 1=1
+0->T
+While T<M
+Getkey->List 16[List 16[1]+1]
+List 16[1]+1->List 16[1]
+For 2->H To List 16[1]
+List 16[H]->G
+If G>=10 And G<>Q
+Then If G=37
+Then X->O
+X+1->X
+X+List V[6*R+2]>7=>7-List V[6*R+2]->X
+X+List V[6*R+1]<1=>1-List V[6*R+1]->X
+For 1->I To 4
+If Mat A[Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Then O->X
+Break
+IfEnd
+Next
+Else If G=28
+Then X->O
+X-1->X
+X+List V[6*R+2]>7=>7-List V[6*R+2]->X
+X+List V[6*R+1]<1=>1-List V[6*R+1]->X
+For 1->I To 4
+If Mat A[Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Then O->X
+Break
+IfEnd
+Next
+Else If G=27
+Then R->O
+R-1->R
+R=-1=>3->R
+For 1->I To 4
+If X+List V[6*R+2]>7 Or X+List V[6*R+1]<1 Or Y+List W[6*R+1]<2 Or Y+List W[6*R+1]>20
+Then O->R
+Break
+IfEnd
+If Mat A[Y-1+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Then O->R
+Break
+IfEnd
+Next
+Else If G=38
+Then 1-List W[6*R+1]->D
+For 1->I To 4
+Y+List W[6*R+2]->J
+While J>0
+If Mat A[J,X+List V[I+4*R+2*(R+1)]]
+Then If Y-((Y-J)+List W[I+4*R+2*(R+1)])+1>D
+Then Y-((Y-J)+List W[I+4*R+2*(R+1)])+1->D
+IfEnd
+Break
+IfEnd
+J-1->J
+WhileEnd
+Next
+D->Y
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+G->Q
+Next
+T+1->T
+1->List 16[1]
+WhileEnd
+Y-1->Y
+If Y+List W[6*R+1]<1
+Then Y+1->Y
+'1-_List _W[6*R+1]_->_Y
+1->F
+Else For 1->I To 4
+If Mat A[Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Then 1->F
+Y+1->Y
+IfEnd
+Next
+IfEnd
+Getkey->List 16[List 16[1]+1]
+List 16[1]+1->List 16[1]
+Getkey->List 16[List 16[1]+1]
+List 16[1]+1->List 16[1]
+For 1->I To 4
+'_Mat _A[E+_List _W[I+4*C+2*(C+1)],A+_List _V[I+4*C+2*(C+1)]]=0_=>__Locate _E+_List _W[I+4*C+2*(C+1)],A+_List _V[I+4*C+2*(C+1)," "
+Locate B+List W[I+4*C+2*(C+1)],A+List V[I+4*C+2*(C+1)]," "
+Next
+Getkey->List 16[List 16[1]+1]
+List 16[1]+1->List 16[1]
+X->A
+Y->B
+R->C
+D->E
+For 1->I To 4
+'_Cyan __Locate _D+_List _W[I+4*R+2*(R+1)],X+_List _V[I+4*R+2*(R+1)]
+If P=1
+Then Green Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=2
+Then Red Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=3
+Then Magenta Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=4
+Then Yellow Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=5
+Then Blue Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=6
+Then Black Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+Else If P=7
+Then Cyan Locate Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)],Str 1
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+Next
+If F=1
+Then If (Y+List 15[P])>U
+Then Y+List 15[P]->U
+IfEnd
+For 1->I To 4
+P->Mat A[Y+List W[I+4*R+2*(R+1)],X+List V[I+4*R+2*(R+1)]]
+Next
+U->I
+While I>=1
+0->O
+For 1->J To 7
+If Mat A[I,J]
+Then O+1->O
+IfEnd
+Next
+If O=7
+Then Mat A->Mat B
+U+1->K
+While K>=I+1
+For 1->L To 7
+'0_->__Mat _B[K,L]
+Mat A[K,L]->Mat B[K-1,L]
+If Mat A[K,L]
+Then If Mat A[K-1,L]<>Mat A[K,L]
+Then If Mat A[K,L]=1
+Then Green Locate K-1,L,Str 1
+Else If Mat A[K,L]=2
+Then Red Locate K-1,L,Str 1
+Else If Mat A[K,L]=3
+Then Magenta Locate K-1,L,Str 1
+Else If Mat A[K,L]=4
+Then Yellow Locate K-1,L,Str 1
+Else If Mat A[K,L]=5
+Then Blue Locate K-1,L,Str 1
+Else If Mat A[K,L]=6
+Then Black Locate K-1,L,Str 1
+Else If Mat A[K,L]=7
+Then Cyan Locate K-1,L,Str 1
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+IfEnd
+Else If Mat A[K-1,L]
+Then Locate K-1,L," "
+IfEnd
+IfEnd
+Next
+K-1->K
+WhileEnd
+Mat B->Mat A
+IfEnd
+I-1->I
+WhileEnd
+Goto 1
+IfEnd
+WhileEnd
+Lbl 3
+Locate 1,1,"Press EXIT"

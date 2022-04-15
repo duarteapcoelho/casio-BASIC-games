@@ -1,3 +1,3 @@
 # Pong
 ## Controls
-Press the UP and DOWN keys to move the paddle up and down.
+Press the UP and DOWN buttons to move the paddle up and down.

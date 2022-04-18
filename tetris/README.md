@@ -1,4 +1,6 @@
 # Tetris
+## Images
+![Tetris](/tetris/tetris.bmp)
 ## Controls
 This game is played with the calculator sideways, so the controls are rotated.
 - To move the piece left and right, press the LEFT and RIGHT buttons.

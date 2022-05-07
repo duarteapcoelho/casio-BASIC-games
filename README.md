@@ -4,13 +4,13 @@ This repository contains simple games for calculators that support casio BASIC p
 For now, the games that are available are pong, snake and tetris.
 
 ### Pong
-![Pong](/pong/pong.bmp)
+<kbd>![Pong](/pong/pong.bmp)</kbd>
 
 ### Snake
-![Snake](/snake/snake.bmp)
+<kbd>![Snake](/snake/snake.bmp)</kbd>
 
 ### Tetris
-![Tetris](/tetris/tetris.bmp)
+<kbd>![Tetris](/tetris/tetris.bmp)</kbd>
 
 ## Installation
 - Copy the program (text file) to the storage memory (directly on the drive).

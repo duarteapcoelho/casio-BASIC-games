@@ -3,10 +3,14 @@
 This repository contains simple games for calculators that support casio BASIC programs, such as the casio fx-CG20 and fx-CG50.
 For now, the games that are available are pong, snake and tetris.
 
-## Images
-![Pong](/pong/pong.bmp)
-![Snake](/snake/snake.bmp)
-![Tetris](/tetris/tetris.bmp)
+### Pong
+<kbd>![Pong](/pong/pong.bmp)</kbd>
+
+### Snake
+<kbd>![Snake](/snake/snake.bmp)</kbd>
+
+### Tetris
+<kbd>![Tetris](/tetris/tetris.bmp)</kbd>
 
 ## Installation
 - Copy the program (text file) to the storage memory (directly on the drive).
@@ -15,8 +19,3 @@ For now, the games that are available are pong, snake and tetris.
 ## Usage
 To run the game, press "EXE" (F1) in program mode with it selected.
 To stop the game while it is running, press the AC/ON key, and then press EXIT twice.
-
-## Controls and explanation of the code
-- [Pong](/pong/PONG.md)
-- [Snake](/snake/SNAKE.md)
-- [Tetris](/tetris/TETRIS.md)
